@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'Order',
     'Themes',
     'Customers',
-    'bootstrap5',
+    
 ]
 
 MIDDLEWARE = [
