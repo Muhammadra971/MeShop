@@ -17,7 +17,24 @@ body {
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
+.alert-container{
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 10%;
+    color: #721c24;
+}
+.success{
+    color: green;
+}
+.error{
+    color: red;
+}
 
+.alert-container ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
 .left-panel {
     flex: 1;
     display: flex;
