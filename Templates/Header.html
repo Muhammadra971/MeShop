@@ -15,8 +15,13 @@
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
                         <div class="dropdown-menu dropdown-menu-right">
+                            {% if not user.is_authenticated  %}
                             <button class="dropdown-item" type="button"><a href="{% url 'login' %}">Sign in</a></button>
                             <button class="dropdown-item" type="button"><a href="{% url 'signup' %}">Sign up</a></button>
+                            {% else  %}
+                            <button class="dropdown-item" type="button"><a href="#">Profile</a></button>
+                            <button class="dropdown-item"  type="button"><a href="{% url 'signout' %}">Signout</a></button>
+                            {% endif  %}
                         </div>
                     </div>
                     <div class="btn-group mx-2">
@@ -120,15 +125,21 @@
                             <a href="{% url 'home' %}" class="nav-item nav-link active">Home</a>
                             <a href="{% url 'product_list' %}" class="nav-item nav-link">Products</a>
                             <div class="nav-item dropdown">
+                                {% if user.is_authenticated %}
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
                                 <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
                                     <a href="{% url 'cart' %}" class="dropdown-item">Shopping Cart</a>
                                     <a href="{% url 'checkout' %}" class="dropdown-item">Checkout</a>
                                 </div>
+                                {% else  %}
+                                    <div></div>
+                                {% endif %}
                             </div>
                             
                         </div>
+                        
                         <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
+                            {% if user.is_authenticated  %}
                             <a href="" class="btn px-0">
                                 <i class="fas fa-heart text-primary"></i>
                                 <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
@@ -137,6 +148,9 @@
                                 <i class="fas fa-shopping-cart text-primary"></i>
                                 <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
                             </a>
+                            {% else %}
+                            <div></div>
+                            {% endif %}
                         </div>
                     </div>
                 </nav>
